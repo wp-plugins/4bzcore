@@ -5,7 +5,7 @@
  * Author: 4bzthemes
  * Author URI: http://4bzthemes.com
  * Description: A collection of shortcodes, widgets, a shortcode builder, multiple featured images, a related posts module, video and audio embed options, and extra fields for the user profile form. Includes Recent Posts, Featured Posts, Popular Posts, Related Posts, Image Text, Progressbars, Flexslider Slideshow, Contact Info, Contact Form, Flickr Photos, Facebook Comments, Author Bio, and Column shortcodes and widgets. This plugin provides filters for theme and plugin authors to override or augment the default shortcodes and widgets' options, display, and description. 4bzthemes recommends the 4bzCore plugin for all of their themes.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 3.8
  * Tested up to: 4.2.2
  * Text Domain: 4bzcore
@@ -462,6 +462,9 @@ if ( ! class_exists( 'FourBzCore' ) ) {
 		public function admin_scripts() {
 			$screen = get_current_screen();
 			
+			wp_register_script( $this->plugin_prefix . '-admin-script', $this->plugin_url  . 'js/admin.js',
+				array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', ) );
+			
 			if ( ( isset( $_GET['page'] ) && ( $this->plugin_prefix . '_options' === $_GET['page'] ) ) || 'post' === $screen->id || 
 				'page' === $screen->id || 'product' === $screen->id || 'user-edit' === $screen->id ||
 				'profile' === $screen->id || 'widgets' === $screen->id ) {
@@ -479,7 +482,7 @@ if ( ! class_exists( 'FourBzCore' ) ) {
 			
 				// Enqueue admin script.
 				wp_enqueue_script( $this->plugin_prefix . '-admin-script', $this->plugin_url  . 'js/admin.js',
-					array( 'jquery','jquery-ui-core', 'jquery-ui-tabs', 'jquery-ui-sortable', 'wp-color-picker', ) );
+					array( 'jquery','jquery-ui-core', 'jquery-ui-sortable', ) );
 				
 				
 				// Enqueue jquery dialog style.
