@@ -5,7 +5,7 @@
  * Author: 4bzthemes
  * Author URI: http://4bzthemes.com
  * Description: A collection of shortcodes, widgets, a shortcode builder, multiple featured images, a related posts module, video and audio embed options, and extra fields for the user profile form. Includes Recent Posts, Featured Posts, Popular Posts, Related Posts, Image Text, Progressbars, Flexslider Slideshow, Contact Info, Contact Form, Flickr Photos, Facebook Comments, Author Bio, and Column shortcodes and widgets. This plugin provides filters for theme and plugin authors to override or augment the default shortcodes and widgets' options, display, and description. 4bzthemes recommends the 4bzCore plugin for all of their themes.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires at least: 3.8
  * Tested up to: 4.2.2
  * Text Domain: 4bzcore
@@ -2268,7 +2268,7 @@ if ( ! class_exists( 'FourBzCore' ) ) {
 			wp_enqueue_script( 'flexslider', $this->plugin_url . 'js/jquery.flexslider-min.js', array( 'jquery' ), false, true );
 				
 			// Enqueue flexslider style
-			wp_enqueue_style( $this->plugin_prefix . '-slider-css', $this->plugin_url . 'css/flexslider.css' );
+			wp_enqueue_style( 'flexslider', $this->plugin_url . 'css/flexslider.css' );
 			
 			// Enqueue font awesome style
 			wp_enqueue_style( 'font-awesome', $this->plugin_url . 'font-awesome/css/font-awesome.min.css' );

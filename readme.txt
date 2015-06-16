@@ -4,7 +4,7 @@ Tags: recent posts, popular posts, featured posts, related posts, contact form, 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GLMKNUUTRPVT4
 Requires at least: 3.8
 Tested up to: 4.2.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ If you have any questions about 4bzCore, consult the following in this order:
 
 == Translators ==
 
-4bzCore needs translations. If you have created or updated a language pack, you can send [gettext PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [4bzthemes](http://4bzthemes.com/) so that it can be bundled into the plugin.
+4bzCore needs translations. If you have created or updated a language pack, you can send [gettext PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [4bzthemes](http://4bzthemes.com/about/) so that it can be bundled into the plugin.
 
 == Installation ==
 
@@ -124,6 +124,10 @@ You can report any bugs through the [Support Forum](http://wordpress.org/support
 None.
 
 == Changelog ==
+= 1.0.2 =
+- Updated: minor css changes.
+- Fixed: flexslider javascript to target only 4bzcore slideshows in front-end.js file.
+
 = 1.0.1 =
 - Fixed: register the plugin's admin script to make it available to theme and plugin authors.
 - Updated: changed the enqueue script code to not require jquery-ui-tabs and wp-color-picker for the plugin's admin script.

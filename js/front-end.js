@@ -103,9 +103,8 @@ function get_grid_size( width, cols ) {
 		/**
 		 * 4. Flexslider
 		 *-----------------------------------------------------------------------*/
-		
 		// Flexslider for the slideshow component.
-		$( '.flexslider.slideshow' ).each( function( i ) {
+		$( '.fourbzcore-slideshow.flexslider' ).each( function( i ) {
 			$( this ).flexslider( {
 				animation: 'slide',
 				animationLoop: true,

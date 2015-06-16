@@ -4,7 +4,7 @@
  * Author: 4bzthemes
  * Author URI: http://4bzthemes.com
  * Description: Front end stylesheet.
- * Version: 1.0.0
+ * Version: 1.0.2
  * @package 4bzCore
  * @subpackage style.css
  ------------------------------------------------------------------------
@@ -109,11 +109,14 @@ article.fourbzcore-article {
 	width: 0;
 }
 
-.progressbar-cont {
+.fourbzcore-progressbars-cont .progressbar-cont {
 	background-color: #ebebeb;
 	border-radius: 4px;
-	width: 100%; 
-	margin-bottom: 18px;
+	width: 100%;
+}
+
+.fourbzcore-progressbars-cont .component {
+	margin-bottom: 12px;
 }
 
 .skills-set,

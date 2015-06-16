@@ -26,7 +26,7 @@ if ( isset( $fourbzcore_layout_opts['title_text'] ) && $fourbzcore_layout_opts['
 	}
 }
 
-echo '<div class="slideshow flexslider">';
+echo '<div class="fourbzcore-slideshow flexslider">';
 $fourbzcore_items_count = isset( $fourbzcore_items ) ? count( $fourbzcore_items ) : 0;
 
 if ( isset( $fourbzcore_items ) && is_array( $fourbzcore_items ) && 0 < $fourbzcore_items_count ) {
