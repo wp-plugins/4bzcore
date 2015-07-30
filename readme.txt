@@ -4,7 +4,7 @@ Tags: recent posts, popular posts, featured posts, related posts, contact form, 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GLMKNUUTRPVT4
 Requires at least: 3.8
 Tested up to: 4.2.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,6 +124,9 @@ You can report any bugs through the [Support Forum](http://wordpress.org/support
 None.
 
 == Changelog ==
+= 1.0.3 =
+- Fixed: save_postdata function.
+
 = 1.0.2 =
 - Updated: minor css changes.
 - Fixed: flexslider javascript to target only 4bzcore slideshows in front-end.js file.

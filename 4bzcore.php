@@ -5,7 +5,7 @@
  * Author: 4bzthemes
  * Author URI: http://4bzthemes.com
  * Description: A collection of shortcodes, widgets, a shortcode builder, multiple featured images, a related posts module, video and audio embed options, and extra fields for the user profile form. Includes Recent Posts, Featured Posts, Popular Posts, Related Posts, Image Text, Progressbars, Flexslider Slideshow, Contact Info, Contact Form, Flickr Photos, Facebook Comments, Author Bio, and Column shortcodes and widgets. This plugin provides filters for theme and plugin authors to override or augment the default shortcodes and widgets' options, display, and description. 4bzthemes recommends the 4bzCore plugin for all of their themes.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires at least: 3.8
  * Tested up to: 4.2.2
  * Text Domain: 4bzcore
@@ -341,7 +341,7 @@ if ( ! class_exists( 'FourBzCore' ) ) {
 			$this->plugin_name = __( '4bzCore', $this->txt_domain );
 			$this->plugin_url = plugin_dir_url( __FILE__ );
 			$this->plugin_dir = plugin_dir_path( __FILE__ );
-			$this->plugin_docs =  'http://www.4bzthemes.com/wordpress/plugins/4bzcore';
+			$this->plugin_docs =  'http://4bzthemes.com/plugin/4bzcore/';
 			$this->page_slug = $this->plugin_prefix . '_options';
 			
 			// Create the shortcodes.
@@ -1881,7 +1881,6 @@ if ( ! class_exists( 'FourBzCore' ) ) {
 			echo ' /></div>';
 		}
 		
-		
 		/**
 		 * Construct and display a meta box that contains options for media
 		 *
@@ -2006,8 +2005,13 @@ if ( ! class_exists( 'FourBzCore' ) ) {
 			
 			$new_list_count = count( $new_list );
 			$old_list = get_post_meta( $post_id, $this->db_options_name, true );
-			$old_list = explode( ' ', $old_list['related'] );
-			$old_list_count = count( $old_list );
+			
+			if ( isset( $old_list['related'] ) ) {
+				$old_list = explode( ' ', $old_list['related'] );
+				$old_list_count = count( $old_list );
+			} else {
+				$old_list_count = 0;
+			}
 			
 			// If post is not related anymore, then update its postmeta.
 			for ( $i = 0; $i < $old_list_count; ++$i ) {
@@ -2032,19 +2036,18 @@ if ( ! class_exists( 'FourBzCore' ) ) {
 				
 				// If none saved then just add the post id.
 				if ( ! $related_list ) {
-					$related_list = $post_id;
+					$related_list = array();
+					$related_list['related'] = $post_id;
 					update_post_meta( $new_list[$i], $this->db_options_name, $related_list );
 				} else {
 					// If a list is already saved, check if post is already listed, if not then add it.
-					$new_string = preg_replace( '/\b' . $post_id . '/', '', $related_list );
+					$new_string = preg_replace( '/\b' . $post_id . '/', '', $related_list['related'] );
 					$new_string .= " $post_id";
-					$related_list = $new_string;
+					$related_list['related'] = $new_string;
 					update_post_meta( $new_list[$i], $this->db_options_name, $related_list );
 				}
 			}
 
-			// Now save to database.
-		
 			$_POST['fourbzcore']['related'] = $data['related'];
 			
 			// Now save to database.
